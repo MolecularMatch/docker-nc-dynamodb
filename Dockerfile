@@ -12,7 +12,7 @@ RUN wget -O /var/dynamodb_wd/dynamodb_local_latest http://dynamodb-local.s3-webs
 RUN tar xfz /var/dynamodb_wd/dynamodb_local_latest
 
 # Default command for image
-ENTRYPOINT ["/usr/bin/java", "-Djava.library.path=.", "-jar", "DynamoDBLocal.jar", "-dbPath", "/var/dynamodb_local"]
+ENTRYPOINT ["/usr/bin/java", "-Djava.library.path=.", "-jar", "DynamoDBLocal.jar", "-dbPath", "/var/dynamodb_local", "--sharedDb"]
 CMD ["-port", "8000"]
 
 # Add VOLUMEs to allow backup of config, logs and databases
